@@ -3,233 +3,316 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Declan D. Perry | Portfolio</title>
+    <title>DECLAN PERRY // SEC_OFFICER</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=JetBrains+Mono:wght@300;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
-        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
-        .gradient-text {
-            background: linear-gradient(90deg, #4ade80, #3b82f6);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        :root {
+            --neon-green: #00ff41;
+            --neon-blue: #00f2ff;
+            --dark-bg: #050505;
         }
-        .card {
-            background: #1f2937;
-            border: 1px solid #374151;
-            transition: transform 0.2s;
+
+        body {
+            background-color: var(--dark-bg);
+            color: #e0e0e0;
+            font-family: 'JetBrains Mono', monospace;
+            overflow-x: hidden;
         }
-        .card:hover { transform: translateY(-5px); border-color: #4ade80; }
+
+        h1, h2, .cyber-font { font-family: 'Orbitron', sans-serif; }
+
+        /* Animated Background Canvas */
+        #bg-canvas {
+            position: fixed;
+            top: 0; left: 0;
+            z-index: -1;
+            opacity: 0.4;
+        }
+
+        .glass-card {
+            background: rgba(15, 15, 15, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 242, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover {
+            border-color: var(--neon-blue);
+            box-shadow: 0 0 20px rgba(0, 242, 255, 0.3);
+            transform: translateY(-5px);
+        }
+
+        .glitch {
+            position: relative;
+            color: white;
+            animation: glitch 3s infinite;
+        }
+
+        @keyframes glitch {
+            0% { text-shadow: 2px 0 red, -2px 0 blue; }
+            2% { text-shadow: -2px 0 red, 2px 0 blue; }
+            4% { text-shadow: 2px 0 red, -2px 0 blue; }
+            100% { text-shadow: none; }
+        }
+
+        .status-dot {
+            height: 10px; width: 10px;
+            background-color: var(--neon-green);
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: 0 0 10px var(--neon-green);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 255, 65, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(0, 255, 65, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 255, 65, 0); }
+        }
+
+        .scanline {
+            width: 100%; height: 2px;
+            background: rgba(0, 255, 65, 0.1);
+            position: fixed;
+            z-index: 100;
+            pointer-events: none;
+            animation: scan 4s linear infinite;
+        }
+
+        @keyframes scan {
+            0% { top: 0; }
+            100% { top: 100%; }
+        }
+
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-thumb { background: var(--neon-blue); }
     </style>
 </head>
-<body class="bg-gray-900 text-gray-100">
+<body class="p-4 md:p-10">
 
-    <!-- Navigation -->
-    <nav class="fixed w-full z-50 bg-gray-900/80 backdrop-blur-md border-b border-gray-800">
-        <div class="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
-            <span class="text-xl font-bold tracking-tighter tracking-widest">DP</span>
-            <div class="space-x-6 text-sm font-medium">
-                <a href="#experience" class="hover:text-green-400 transition">Experience</a>
-                <a href="#projects" class="hover:text-green-400 transition">Projects</a>
-                <a href="#skills" class="hover:text-green-400 transition">Skills</a>
-                <a href="#education" class="hover:text-green-400 transition">Education</a>
+    <canvas id="bg-canvas"></canvas>
+    <div class="scanline"></div>
+
+    <!-- MAIN TERMINAL WRAPPER -->
+    <div class="max-w-6xl mx-auto border-2 border-blue-900/30 p-2 md:p-6 rounded-lg animate__animated animate__fadeIn">
+        
+        <!-- Header / HUD -->
+        <header class="flex flex-col md:flex-row justify-between items-start md:items-center mb-16 border-b border-blue-900/50 pb-8">
+            <div>
+                <div class="text-xs text-blue-400 mb-2 tracking-[0.3em]">IDENTITY_VERIFIED // SESSION_01</div>
+                <h1 class="text-4xl md:text-6xl font-bold glitch uppercase tracking-tighter">Declan Perry</h1>
+                <p class="text-blue-400 mt-2 flex items-center gap-2">
+                    <span class="status-dot"></span> 
+                    LEVEL: COLLEGE_FRESHMAN // URI_CS_DEPT
+                </p>
+            </div>
+            <div class="mt-6 md:mt-0 flex gap-4">
+                <a href="https://github.com/dekp23" target="_blank" class="glass-card px-6 py-3 rounded text-xs hover:text-white transition uppercase font-bold tracking-widest">
+                    <i class="fab fa-github mr-2"></i> Access_Git
+                </a>
+                <a href="https://www.linkedin.com/in/declan-perry-9372b2393/" target="_blank" class="glass-card px-6 py-3 rounded text-xs hover:text-white transition uppercase font-bold tracking-widest text-blue-400 border-blue-400/50">
+                    <i class="fab fa-linkedin mr-2"></i> Connect_Link
+                </a>
+            </div>
+        </header>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            
+            <!-- LEFT COLUMN: STATS & CORE -->
+            <div class="lg:col-span-4 space-y-8">
+                
+                <!-- Education HUD -->
+                <section class="glass-card p-6 rounded-none border-l-4 border-l-blue-500">
+                    <h2 class="text-blue-400 text-sm font-bold mb-4 flex items-center gap-2">
+                        <i class="fas fa-graduation-cap"></i> EDUCATION_INTEL
+                    </h2>
+                    <div class="space-y-4">
+                        <div>
+                            <p class="text-xs text-gray-500">UNIVERSITY</p>
+                            <p class="text-white font-bold">Rhode Island State</p>
+                            <p class="text-blue-400 text-xs mt-1">GPA 3.91 / CS Major</p>
+                        </div>
+                        <div>
+                            <p class="text-xs text-gray-500">HIGH_SCHOOL</p>
+                            <p class="text-white">7 AP Courses Completed</p>
+                            <p class="text-blue-400 text-xs mt-1">GPA 3.80</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Technical Skills List -->
+                <section class="glass-card p-6 rounded-none border-l-4 border-l-green-500">
+                    <h2 class="text-green-400 text-sm font-bold mb-4">SYSTEM_CAPABILITIES</h2>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-green-900/20 text-green-400 px-3 py-1 rounded text-[10px] border border-green-900/50">PYTHON</span>
+                        <span class="bg-green-900/20 text-green-400 px-3 py-1 rounded text-[10px] border border-green-900/50">JAVA_OOP</span>
+                        <span class="bg-green-900/20 text-green-400 px-3 py-1 rounded text-[10px] border border-green-900/50">JAVASCRIPT</span>
+                        <span class="bg-green-900/20 text-green-400 px-3 py-1 rounded text-[10px] border border-green-900/50">DEBIAN_LINUX</span>
+                        <span class="bg-green-900/20 text-green-400 px-3 py-1 rounded text-[10px] border border-green-900/50">SQL</span>
+                        <span class="bg-green-900/20 text-green-400 px-3 py-1 rounded text-[10px] border border-green-900/50">IOT_HARDWARE</span>
+                        <span class="bg-green-900/20 text-green-400 px-3 py-1 rounded text-[10px] border border-green-900/50">MALWARE_FORENSICS</span>
+                    </div>
+                </section>
+
+                <!-- Award Badges -->
+                <section class="space-y-4">
+                    <div class="glass-card p-4 border border-yellow-500/30 flex items-center gap-4">
+                        <i class="fas fa-award text-yellow-500 text-2xl"></i>
+                        <div>
+                            <p class="text-[10px] text-yellow-500">NCL_ACHIEVEMENT</p>
+                            <p class="text-xs font-bold text-white uppercase">Top 10% Nationally</p>
+                        </div>
+                    </div>
+                    <div class="glass-card p-4 border border-blue-400/30 flex items-center gap-4">
+                        <i class="fas fa-terminal text-blue-400 text-2xl"></i>
+                        <div>
+                            <p class="text-[10px] text-blue-400">HACK@URI_2026</p>
+                            <p class="text-xs font-bold text-white uppercase">Second Round Tier</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- RIGHT COLUMN: ACTIVITY LOG (EXPERIENCE & PROJECTS) -->
+            <div class="lg:col-span-8 space-y-8">
+                
+                <!-- Experience Terminal -->
+                <section>
+                    <h2 class="cyber-font text-xl text-white mb-6 flex items-center gap-3">
+                        <i class="fas fa-history text-blue-500 text-sm"></i> EXPERIENCE_LOG
+                    </h2>
+                    
+                    <div class="space-y-6">
+                        <!-- Job 1 -->
+                        <div class="relative pl-8 border-l border-blue-900/50">
+                            <div class="absolute -left-[5px] top-0 h-2 w-2 bg-blue-500 rounded-full shadow-[0_0_10px_#3b82f6]"></div>
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="text-blue-400 font-bold uppercase">IT Consultant // URI Service Desk</h3>
+                                <span class="text-[10px] text-gray-500">OCT 2025 - PRESENT</span>
+                            </div>
+                            <p class="text-sm text-gray-300">Managed security for <span class="text-white">200+ users</span>. Mitigated malware incidents and maintained system integrity across complex software ecosystems.</p>
+                        </div>
+
+                        <!-- Job 2 -->
+                        <div class="relative pl-8 border-l border-blue-900/50">
+                            <div class="absolute -left-[5px] top-0 h-2 w-2 bg-gray-700 rounded-full"></div>
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="text-gray-400 font-bold uppercase">Welding Specialist & TA // CCAP</h3>
+                                <span class="text-[10px] text-gray-500">2021 - 2024</span>
+                            </div>
+                            <p class="text-sm text-gray-400 italic font-light">Cross-disciplinary experience in high-stakes environments and medical emergency response.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Project Grid -->
+                <section>
+                    <h2 class="cyber-font text-xl text-white mb-6 flex items-center gap-3">
+                        <i class="fas fa-microchip text-green-500 text-sm"></i> ACTIVE_PROJECTS
+                    </h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        
+                        <!-- P1 -->
+                        <div class="glass-card p-5 group">
+                            <div class="flex justify-between items-center mb-4">
+                                <i class="fas fa-shield-virus text-2xl text-green-400"></i>
+                                <span class="text-[10px] px-2 py-0.5 border border-green-500 text-green-500 rounded">RAG_AI</span>
+                            </div>
+                            <h4 class="font-bold text-white group-hover:text-green-400 transition mb-2">Rental Shield</h4>
+                            <p class="text-xs text-gray-400">Hackathon winner. Web app using Zillow API + Gemini AI + RAG knowledge base for legal renter protection.</p>
+                        </div>
+
+                        <!-- P2 -->
+                        <div class="glass-card p-5 group border-r-4 border-r-blue-500">
+                            <div class="flex justify-between items-center mb-4">
+                                <i class="fas fa-eye text-2xl text-blue-400"></i>
+                                <span class="text-[10px] px-2 py-0.5 border border-blue-500 text-blue-500 rounded">LIVE_DEV</span>
+                            </div>
+                            <h4 class="font-bold text-white group-hover:text-blue-400 transition mb-2">Smart AI Camera</h4>
+                            <p class="text-xs text-gray-400">Raspberry Pi 5 + Hailo AI (13+ TOPS) for high-speed object detection and security monitoring.</p>
+                        </div>
+
+                        <!-- P3 -->
+                        <div class="glass-card p-5 group">
+                            <i class="fas fa-server text-2xl text-purple-400 mb-4 block"></i>
+                            <h4 class="font-bold text-white mb-2">Kiwix Node</h4>
+                            <p class="text-xs text-gray-400">Deployed localized Wikipedia/Gutenberg servers for offline resource access via Pi 5.</p>
+                        </div>
+
+                        <!-- P4 -->
+                        <div class="glass-card p-5 group">
+                            <i class="fas fa-ghost text-2xl text-red-500 mb-4 block"></i>
+                            <h4 class="font-bold text-white mb-2">PACMAN_JS</h4>
+                            <p class="text-xs text-gray-400">Full game engine build using Processing.js, collision logic, and custom scoring systems.</p>
+                        </div>
+
+                    </div>
+                </section>
             </div>
         </div>
-    </nav>
 
-    <!-- Hero Section -->
-    <header class="pt-32 pb-16 px-6">
-        <div class="max-w-5xl mx-auto">
-            <h1 class="text-5xl md:text-7xl font-bold mb-4">Declan D. Perry</h1>
-            <p class="text-xl md:text-2xl text-gray-400 mb-8 max-w-2xl">
-                <span class="gradient-text font-semibold">College Freshman</span> at University of Rhode Island. 
-                Focused on Computer Science, Cybersecurity, and building innovative hardware/software solutions.
+        <footer class="mt-20 pt-8 border-t border-blue-900/30 text-center">
+            <p class="text-[10px] text-blue-900 tracking-widest uppercase">
+                Designed for Declan Perry // Encrypted Connection Secure // &copy; 2025
             </p>
-            <div class="flex space-x-4">
-                <a href="https://github.com/dekp23" target="_blank" class="bg-gray-800 hover:bg-gray-700 p-3 rounded-full transition">
-                    <i class="fab fa-github text-2xl"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/declan-perry-9372b2393/" target="_blank" class="bg-gray-800 hover:bg-gray-700 p-3 rounded-full transition">
-                    <i class="fab fa-linkedin text-2xl"></i>
-                </a>
-            </div>
-        </div>
-    </header>
+        </footer>
+    </div>
 
-    <!-- Experience Section -->
-    <section id="experience" class="py-20 px-6 bg-gray-800/50">
-        <div class="max-w-5xl mx-auto">
-            <h2 class="text-3xl font-bold mb-12 flex items-center">
-                <span class="text-green-400 mr-4 tracking-widest text-sm">01.</span> Experience
-            </h2>
-            <div class="space-y-12">
-                <!-- URI IT -->
-                <div class="border-l-2 border-green-500 pl-6 relative">
-                    <div class="absolute w-3 h-3 bg-green-500 rounded-full -left-[7px] top-1"></div>
-                    <h3 class="text-xl font-bold">IT Consultant</h3>
-                    <p class="text-green-400 mb-2">University of Rhode Island IT Service Desk | Oct 2025 - Present</p>
-                    <ul class="text-gray-400 space-y-2 list-disc list-inside">
-                        <li>Identified and mitigated malware incidents, improving endpoint security for 200+ users.</li>
-                        <li>Worked with various technologies and software to solve complex technical issues.</li>
-                        <li>Developed high-level communication and customer service skills.</li>
-                    </ul>
-                </div>
+    <!-- Background Animation Script -->
+    <script>
+        const canvas = document.getElementById('bg-canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
 
-                <!-- Welding TA -->
-                <div class="border-l-2 border-gray-700 pl-6 relative">
-                    <div class="absolute w-3 h-3 bg-gray-700 rounded-full -left-[7px] top-1"></div>
-                    <h3 class="text-xl font-bold">Welding Teacher’s Assistant</h3>
-                    <p class="text-gray-400 mb-2">CCAP Learn to Earn Program | Summer 2024</p>
-                    <ul class="text-gray-400 space-y-2 list-disc list-inside">
-                        <li>Assisted instructors and maintained a clean, safe work environment.</li>
-                        <li>Responded to and helped manage medical emergencies on-site.</li>
-                    </ul>
-                </div>
+        function init() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            for(let i = 0; i < 80; i++) {
+                particles.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    vx: (Math.random() - 0.5) * 0.5,
+                    vy: (Math.random() - 0.5) * 0.5
+                });
+            }
+        }
 
-                <!-- Welding Intern -->
-                <div class="border-l-2 border-gray-700 pl-6 relative">
-                    <div class="absolute w-3 h-3 bg-gray-700 rounded-full -left-[7px] top-1"></div>
-                    <h3 class="text-xl font-bold">Welding Paid Intern</h3>
-                    <p class="text-gray-400 mb-2">CCAP Learn to Earn Program | Summers 2021 - 2023</p>
-                    <ul class="text-gray-400 space-y-2 list-disc list-inside">
-                        <li>Mastered welding techniques and precision woodworking tools.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
+        function draw() {
+            ctx.clearRect(0,0,canvas.width, canvas.height);
+            ctx.fillStyle = '#00f2ff';
+            ctx.strokeStyle = '#00f2ff22';
+            
+            particles.forEach((p, i) => {
+                p.x += p.vx;
+                p.y += p.vy;
+                if(p.x < 0 || p.x > canvas.width) p.vx *= -1;
+                if(p.y < 0 || p.y > canvas.height) p.vy *= -1;
+                
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, 1.5, 0, Math.PI*2);
+                ctx.fill();
 
-    <!-- Projects Section -->
-    <section id="projects" class="py-20 px-6">
-        <div class="max-w-5xl mx-auto">
-            <h2 class="text-3xl font-bold mb-12 flex items-center">
-                <span class="text-green-400 mr-4 tracking-widest text-sm">02.</span> Selected Projects
-            </h2>
-            <div class="grid md:grid-cols-2 gap-6">
-                <!-- Rental Shield -->
-                <div class="card p-6 rounded-xl">
-                    <div class="flex justify-between items-start mb-4">
-                        <i class="fas fa-shield-halved text-green-400 text-3xl"></i>
-                        <span class="text-xs font-mono text-green-400 px-2 py-1 border border-green-400 rounded">Hackathon</span>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2">Rental Shield</h3>
-                    <p class="text-gray-400 text-sm mb-4">A web app for RI renters using Zillow data. Integrated a Gemini chatbot with RAG (Retrieval-Augmented Generation) for document-specific knowledge.</p>
-                </div>
+                for(let j = i + 1; j < particles.length; j++) {
+                    const p2 = particles[j];
+                    const dist = Math.hypot(p.x - p2.x, p.y - p2.y);
+                    if(dist < 150) {
+                        ctx.beginPath();
+                        ctx.moveTo(p.x, p.y);
+                        ctx.lineTo(p2.x, p2.y);
+                        ctx.stroke();
+                    }
+                }
+            });
+            requestAnimationFrame(draw);
+        }
 
-                <!-- Smart Door Camera -->
-                <div class="card p-6 rounded-xl">
-                    <div class="flex justify-between items-start mb-4">
-                        <i class="fas fa-camera text-blue-400 text-3xl"></i>
-                        <span class="text-xs font-mono text-blue-400 px-2 py-1 border border-blue-400 rounded">In Progress</span>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2">AI Smart Door Camera</h3>
-                    <p class="text-gray-400 text-sm mb-4">Building an object detection camera using Raspberry Pi 5 and the Hailo AI accelerator (13+ TOPS).</p>
-                </div>
-
-                <!-- Kiwix Server -->
-                <div class="card p-6 rounded-xl">
-                    <div class="mb-4">
-                        <i class="fas fa-server text-purple-400 text-3xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2">Kiwix Offline Server</h3>
-                    <p class="text-gray-400 text-sm mb-4">Self-hosted server on Raspberry Pi 5 providing offline access to Wikipedia and Project Gutenberg.</p>
-                </div>
-
-                <!-- Pacman JS -->
-                <div class="card p-6 rounded-xl">
-                    <div class="mb-4">
-                        <i class="fas fa-ghost text-red-400 text-3xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2">Pacman JS</h3>
-                    <p class="text-gray-400 text-sm mb-4">Functional clone using Processing.js, featuring collision detection, game logic, and a scoring system.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="py-20 px-6 bg-gray-800/50">
-        <div class="max-w-5xl mx-auto">
-            <h2 class="text-3xl font-bold mb-12 flex items-center">
-                <span class="text-green-400 mr-4 tracking-widest text-sm">03.</span> Technical Arsenal
-            </h2>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div>
-                    <h4 class="text-green-400 font-bold mb-4 uppercase text-xs tracking-widest">Languages / Core</h4>
-                    <ul class="space-y-2 text-gray-300">
-                        <li><i class="fab fa-python mr-2"></i> Python</li>
-                        <li><i class="fab fa-java mr-2"></i> Java (OOP)</li>
-                        <li><i class="fab fa-js mr-2"></i> Javascript</li>
-                        <li><i class="fas fa-database mr-2"></i> SQL / Lua</li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-green-400 font-bold mb-4 uppercase text-xs tracking-widest">Specialized</h4>
-                    <ul class="space-y-2 text-gray-300">
-                        <li><i class="fab fa-linux mr-2"></i> Linux (Debian)</li>
-                        <li><i class="fas fa-shield-virus mr-2"></i> Malware Removal</li>
-                        <li><i class="fas fa-network-wired mr-2"></i> Wired/Wireless Networking</li>
-                        <li><i class="fas fa-microchip mr-2"></i> Raspberry Pi / IoT</li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-green-400 font-bold mb-4 uppercase text-xs tracking-widest">Soft Skills</h4>
-                    <ul class="space-y-2 text-gray-300">
-                        <li><i class="fas fa-check-circle mr-2"></i> Diligent & Patient</li>
-                        <li><i class="fas fa-users mr-2"></i> Collaborative</li>
-                        <li><i class="fas fa-sync mr-2"></i> Highly Adaptable</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Education & Awards Section -->
-    <section id="education" class="py-20 px-6">
-        <div class="max-w-5xl mx-auto">
-            <div class="grid md:grid-cols-2 gap-12">
-                <div>
-                    <h2 class="text-3xl font-bold mb-8">Education</h2>
-                    <div class="mb-6">
-                        <h3 class="text-xl font-bold text-green-400">University of Rhode Island</h3>
-                        <p class="text-gray-300 italic">B.S. Computer Science, Cybersecurity Minor</p>
-                        <p class="text-lg font-semibold mt-1">GPA: 3.91</p>
-                    </div>
-                    <div>
-                        <h3 class="text-xl font-bold">High School</h3>
-                        <p class="text-gray-300">GPA: 3.8 | 7 AP Classes</p>
-                    </div>
-                </div>
-                <div>
-                    <h2 class="text-3xl font-bold mb-8">Awards & Honors</h2>
-                    <ul class="space-y-4">
-                        <li class="flex items-start">
-                            <i class="fas fa-trophy text-yellow-500 mt-1 mr-3"></i>
-                            <div>
-                                <p class="font-bold">National Cyber League (Fall 2025)</p>
-                                <p class="text-sm text-gray-400">Ranked in top 10% nationally in Individual Game</p>
-                            </div>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-code text-blue-400 mt-1 mr-3"></i>
-                            <div>
-                                <p class="font-bold">Hack@URI 2026</p>
-                                <p class="text-sm text-gray-400">Advanced to the Second Round</p>
-                            </div>
-                        </li>
-                        <li class="flex items-start text-gray-300">
-                            <i class="fas fa-medal mt-1 mr-3"></i>
-                            <span>National Honors Society / Art Honors Society</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="py-10 text-center border-t border-gray-800 text-gray-500 text-sm">
-        <p>&copy; <script>document.write(new Date().getFullYear())</script> Declan D. Perry. Built with Tailwind CSS.</p>
-    </footer>
-
+        window.addEventListener('resize', init);
+        init();
+        draw();
+    </script>
 </body>
 </html>
