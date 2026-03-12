@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Declan D. Perry | Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        .gradient-text {
+            background: linear-gradient(90deg, #4ade80, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .card {
+            background: #1f2937;
+            border: 1px solid #374151;
+            transition: transform 0.2s;
+        }
+        .card:hover { transform: translateY(-5px); border-color: #4ade80; }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-100">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-gray-900/80 backdrop-blur-md border-b border-gray-800">
+        <div class="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
+            <span class="text-xl font-bold tracking-tighter tracking-widest">DP</span>
+            <div class="space-x-6 text-sm font-medium">
+                <a href="#experience" class="hover:text-green-400 transition">Experience</a>
+                <a href="#projects" class="hover:text-green-400 transition">Projects</a>
+                <a href="#skills" class="hover:text-green-400 transition">Skills</a>
+                <a href="#education" class="hover:text-green-400 transition">Education</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="pt-32 pb-16 px-6">
+        <div class="max-w-5xl mx-auto">
+            <h1 class="text-5xl md:text-7xl font-bold mb-4">Declan D. Perry</h1>
+            <p class="text-xl md:text-2xl text-gray-400 mb-8 max-w-2xl">
+                <span class="gradient-text font-semibold">College Freshman</span> at University of Rhode Island. 
+                Focused on Computer Science, Cybersecurity, and building innovative hardware/software solutions.
+            </p>
+            <div class="flex space-x-4">
+                <a href="https://github.com/dekp23" target="_blank" class="bg-gray-800 hover:bg-gray-700 p-3 rounded-full transition">
+                    <i class="fab fa-github text-2xl"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/declan-perry-9372b2393/" target="_blank" class="bg-gray-800 hover:bg-gray-700 p-3 rounded-full transition">
+                    <i class="fab fa-linkedin text-2xl"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 px-6 bg-gray-800/50">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-3xl font-bold mb-12 flex items-center">
+                <span class="text-green-400 mr-4 tracking-widest text-sm">01.</span> Experience
+            </h2>
+            <div class="space-y-12">
+                <!-- URI IT -->
+                <div class="border-l-2 border-green-500 pl-6 relative">
+                    <div class="absolute w-3 h-3 bg-green-500 rounded-full -left-[7px] top-1"></div>
+                    <h3 class="text-xl font-bold">IT Consultant</h3>
+                    <p class="text-green-400 mb-2">University of Rhode Island IT Service Desk | Oct 2025 - Present</p>
+                    <ul class="text-gray-400 space-y-2 list-disc list-inside">
+                        <li>Identified and mitigated malware incidents, improving endpoint security for 200+ users.</li>
+                        <li>Worked with various technologies and software to solve complex technical issues.</li>
+                        <li>Developed high-level communication and customer service skills.</li>
+                    </ul>
+                </div>
+
+                <!-- Welding TA -->
+                <div class="border-l-2 border-gray-700 pl-6 relative">
+                    <div class="absolute w-3 h-3 bg-gray-700 rounded-full -left-[7px] top-1"></div>
+                    <h3 class="text-xl font-bold">Welding Teacher’s Assistant</h3>
+                    <p class="text-gray-400 mb-2">CCAP Learn to Earn Program | Summer 2024</p>
+                    <ul class="text-gray-400 space-y-2 list-disc list-inside">
+                        <li>Assisted instructors and maintained a clean, safe work environment.</li>
+                        <li>Responded to and helped manage medical emergencies on-site.</li>
+                    </ul>
+                </div>
+
+                <!-- Welding Intern -->
+                <div class="border-l-2 border-gray-700 pl-6 relative">
+                    <div class="absolute w-3 h-3 bg-gray-700 rounded-full -left-[7px] top-1"></div>
+                    <h3 class="text-xl font-bold">Welding Paid Intern</h3>
+                    <p class="text-gray-400 mb-2">CCAP Learn to Earn Program | Summers 2021 - 2023</p>
+                    <ul class="text-gray-400 space-y-2 list-disc list-inside">
+                        <li>Mastered welding techniques and precision woodworking tools.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 px-6">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-3xl font-bold mb-12 flex items-center">
+                <span class="text-green-400 mr-4 tracking-widest text-sm">02.</span> Selected Projects
+            </h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <!-- Rental Shield -->
+                <div class="card p-6 rounded-xl">
+                    <div class="flex justify-between items-start mb-4">
+                        <i class="fas fa-shield-halved text-green-400 text-3xl"></i>
+                        <span class="text-xs font-mono text-green-400 px-2 py-1 border border-green-400 rounded">Hackathon</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Rental Shield</h3>
+                    <p class="text-gray-400 text-sm mb-4">A web app for RI renters using Zillow data. Integrated a Gemini chatbot with RAG (Retrieval-Augmented Generation) for document-specific knowledge.</p>
+                </div>
+
+                <!-- Smart Door Camera -->
+                <div class="card p-6 rounded-xl">
+                    <div class="flex justify-between items-start mb-4">
+                        <i class="fas fa-camera text-blue-400 text-3xl"></i>
+                        <span class="text-xs font-mono text-blue-400 px-2 py-1 border border-blue-400 rounded">In Progress</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">AI Smart Door Camera</h3>
+                    <p class="text-gray-400 text-sm mb-4">Building an object detection camera using Raspberry Pi 5 and the Hailo AI accelerator (13+ TOPS).</p>
+                </div>
+
+                <!-- Kiwix Server -->
+                <div class="card p-6 rounded-xl">
+                    <div class="mb-4">
+                        <i class="fas fa-server text-purple-400 text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Kiwix Offline Server</h3>
+                    <p class="text-gray-400 text-sm mb-4">Self-hosted server on Raspberry Pi 5 providing offline access to Wikipedia and Project Gutenberg.</p>
+                </div>
+
+                <!-- Pacman JS -->
+                <div class="card p-6 rounded-xl">
+                    <div class="mb-4">
+                        <i class="fas fa-ghost text-red-400 text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Pacman JS</h3>
+                    <p class="text-gray-400 text-sm mb-4">Functional clone using Processing.js, featuring collision detection, game logic, and a scoring system.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 px-6 bg-gray-800/50">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-3xl font-bold mb-12 flex items-center">
+                <span class="text-green-400 mr-4 tracking-widest text-sm">03.</span> Technical Arsenal
+            </h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <h4 class="text-green-400 font-bold mb-4 uppercase text-xs tracking-widest">Languages / Core</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><i class="fab fa-python mr-2"></i> Python</li>
+                        <li><i class="fab fa-java mr-2"></i> Java (OOP)</li>
+                        <li><i class="fab fa-js mr-2"></i> Javascript</li>
+                        <li><i class="fas fa-database mr-2"></i> SQL / Lua</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-green-400 font-bold mb-4 uppercase text-xs tracking-widest">Specialized</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><i class="fab fa-linux mr-2"></i> Linux (Debian)</li>
+                        <li><i class="fas fa-shield-virus mr-2"></i> Malware Removal</li>
+                        <li><i class="fas fa-network-wired mr-2"></i> Wired/Wireless Networking</li>
+                        <li><i class="fas fa-microchip mr-2"></i> Raspberry Pi / IoT</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-green-400 font-bold mb-4 uppercase text-xs tracking-widest">Soft Skills</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><i class="fas fa-check-circle mr-2"></i> Diligent & Patient</li>
+                        <li><i class="fas fa-users mr-2"></i> Collaborative</li>
+                        <li><i class="fas fa-sync mr-2"></i> Highly Adaptable</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education & Awards Section -->
+    <section id="education" class="py-20 px-6">
+        <div class="max-w-5xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <h2 class="text-3xl font-bold mb-8">Education</h2>
+                    <div class="mb-6">
+                        <h3 class="text-xl font-bold text-green-400">University of Rhode Island</h3>
+                        <p class="text-gray-300 italic">B.S. Computer Science, Cybersecurity Minor</p>
+                        <p class="text-lg font-semibold mt-1">GPA: 3.91</p>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold">High School</h3>
+                        <p class="text-gray-300">GPA: 3.8 | 7 AP Classes</p>
+                    </div>
+                </div>
+                <div>
+                    <h2 class="text-3xl font-bold mb-8">Awards & Honors</h2>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <i class="fas fa-trophy text-yellow-500 mt-1 mr-3"></i>
+                            <div>
+                                <p class="font-bold">National Cyber League (Fall 2025)</p>
+                                <p class="text-sm text-gray-400">Ranked in top 10% nationally in Individual Game</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-code text-blue-400 mt-1 mr-3"></i>
+                            <div>
+                                <p class="font-bold">Hack@URI 2026</p>
+                                <p class="text-sm text-gray-400">Advanced to the Second Round</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start text-gray-300">
+                            <i class="fas fa-medal mt-1 mr-3"></i>
+                            <span>National Honors Society / Art Honors Society</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-10 text-center border-t border-gray-800 text-gray-500 text-sm">
+        <p>&copy; <script>document.write(new Date().getFullYear())</script> Declan D. Perry. Built with Tailwind CSS.</p>
+    </footer>
+
+</body>
+</html>
